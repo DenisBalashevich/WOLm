@@ -59,3 +59,10 @@ Simplify[%107]
 
 
 Plot[%108,{x,0,2}]
+
+
+
+
+
+
+%%Somthing new
