@@ -1,6 +1,6 @@
 (* ::Package:: *)
 
-ClearAll[pi, x0, f, Tzero, A, P, LP, CNP, NP, TSA, TRO];
+ClearAll[pi, x0, f, p, Tzero, A, P, LP, CNP, NP, TSA, TRO];
 
 
 $MinPrecision = 8;
