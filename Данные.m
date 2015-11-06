@@ -20,7 +20,7 @@ Tzero[n_]:=Table[pi/4 * Cos[pi * (2*k - 1)/(2*n)]+pi/4,{k,n}];
 
 (*Barycentric form of Lagrange polynom*)
 A[k_,x0_]:=1/Product[x0[[k]]-x0[[i]],{i,Complement[Range[Length[x0]],{k}]}];
-P[x_,x0_]:=Sum[(A[i,x0] f0[[i]])/(x-x0[[i]]),{i,Length[x0]}]/Sum[A[i,x0] /(x-x0[[i]]),{i,Length[x0]}];
+P[x_,x0_]:=Sum[(A[i,x0] f[x0[[i]]])/(x-x0[[i]]),{i,Length[x0]}]/Sum[A[i,x0] /(x-x0[[i]]),{i,Length[x0]}];
 
 
 (*Aitkin algorithm of Lagrange polynom*)
