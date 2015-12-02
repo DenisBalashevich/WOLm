@@ -29,27 +29,36 @@ A[n_,i_]:=NewLP[n,i]-Newf[n,i]//N//Abs;
 (*Table[A[n0[[j]],#]&/@Range[4],{j,4}]*)
 
 
-Interpolation[{1,5,7,2,3,1},InterpolationOrder->1]
-
-
 Regen[n_]:=Table[{Gen[n][[1]][[j]],Gen[n][[2]][[j]]},{j,1,n+1}];
 
 
-IS[n_,i_]:=Interpolation[Regen[n],InterpolationOrder->1][x[i,n]];
-IP[n_,i_]:=InterpolatingPolynomial[Regen[4],t]/.t->x[i,n];
+IS[n_]:=Interpolation[Regen[n],InterpolationOrder->1];
+IP[n_]:=InterpolatingPolynomial[Regen[n],#]&;
 
 
-LP[4,1,t,Gen[4][[1]]]
+LP[4,1,t,Gen[4][[1]]]//Expand
 
 
-InterpolatingPolynomial[Regen[4],t]
+IP[4][1]
 
 
-P[n_,i_]:=IP[n,i]-Newf[n,i]//N//Abs;
-S[n_,i_]:=IS[n,i]-Newf[n,i]//N//Abs;
+Newi[II_,n_,i_]:=II[n][Gen[n][[3]][[i]]];
+
+
+InterpolatingPolynomial[Regen[4],t]//Expand
+
+
+P[n_,i_]:=Newi[IP,n,i]-Newf[n,i]//N//Abs;
+S[n_,i_]:=Newi[IS,n,i]-Newf[n,i]//N//Abs;
+
+
+Table[Newi[IP,n0[[j]],#]&/@Range[4],{j,4}]//N//Abs
 
 
 Table[P[n0[[j]],#]&/@Range[4],{j,4}]
+
+
+Table[Newi[IS,n0[[j]],#]&/@Range[4],{j,4}]//N//Abs
 
 
 Table[S[n0[[j]],#]&/@Range[4],{j,4}]
