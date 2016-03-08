@@ -4,7 +4,7 @@
 Clear[MF, T, App, G, S, Nr];
 MF[A_]:=MatrixForm[A];
 T[A_]:=Transpose[A];
-(*Ab=Join[A,Transpose[{b}],2]//MF*)
+(*Ab=Join[A,Transpose[{b}],2]*)
 App[A_,B_]:=T[Append[T[A],B]];
 App[A_]:=Fold[App,A];
 G[A_]:=Grid[A,Frame->All];
@@ -36,7 +36,3 @@ X=Table[rg[m],{m,n}]
 
 
 "import complete"
-
-
-"X[[1]]=AbS[[-1,n+1;;-1]]/AbS[[n,n]];
-X[[2]]=AbS[[]]-AbS[[]]*X[[1]]"
